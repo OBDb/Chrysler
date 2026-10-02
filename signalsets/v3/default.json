@@ -1840,7 +1840,7 @@
   ]},
 { "hdr": "7AB", "rax": "52B", "fcm1": true, "dbg": true, "cmd": {"22": "2802"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_GPS_HEADING",      "path": "GPS", "fmt": {"bix": 152, "len": 16, "max": 65535, "unit": "degrees" }, "name": "Heading"},
+    {"id": "CHRYSLER_GPS_HEADING",      "path": "GPS", "fmt": {"bix": 152, "len": 16, "max": 360, "div": 10, "unit": "degrees" }, "name": "Heading"},
     {"id": "CHRYSLER_GPS_SATS_TRACKED", "path": "GPS", "fmt": {"bix": 200, "len": 4,  "max": 15,    "unit": "scalar"  }, "name": "Satellites, tracked"},
     {"id": "CHRYSLER_GPS_SATS_VISIBLE", "path": "GPS", "fmt": {"bix": 204, "len": 4,  "max": 15,    "unit": "scalar"  }, "name": "Satellites, visible"}
   ]},
