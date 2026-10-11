@@ -177,7 +177,7 @@
   ]},
 { "hdr": "6A8", "rax": "688", "fcm1": true, "dbg": true, "cmd": {"22": "D41F"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_FUEL_P", "path": "Fuel", "fmt": { "len": 16, "max": 32.76, "min": -32.76, "div": 999.9999525026, "sign": true, "unit": "bars" }, "name": "Fuel pressure"}
+    {"id": "CHRYSLER_FUEL_P_V2", "path": "Fuel", "fmt": { "len": 16, "max": 32.76, "min": -32.76, "div": 999.9999525026, "sign": true, "unit": "bars" }, "name": "Fuel pressure"}
   ]},
 { "hdr": "6A8", "rax": "688", "fcm1": true, "dbg": true, "cmd": {"22": "D421"}, "freq": 1,
   "signals": [
@@ -1869,6 +1869,10 @@
   "signals": [
     {"id": "CHRYSLER_ATF_T_V_2", "path": "Transmission", "fmt": { "len": 16, "max": 1023, "div": 64, "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variant 2", "suggestedMetric": "transmissionFluidTemperature"}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "1A"}, "freq": 1,
+  "signals": [
+    {"id": "CHRYSLER_BOOST_P_ACT", "path": "Engine", "fmt": {"bix": 160, "len": 16, "max": 65535, "unit": "kilopascal" }, "name": "Boost pressure, actual"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "23"}, "freq": 5,
   "signals": [
     {"id": "CHRYSLER_AAT_7E0", "path": "Engine",  "fmt": {           "len": 16, "max": 1023, "div": 64, "unit": "fahrenheit" }, "name": "Ambient air temperature"},
@@ -1878,6 +1882,10 @@
   "signals": [
     {"id": "CHRYSLER_EOT_212D", "path": "Engine", "fmt": {"bix": 56, "len": 8, "max": 376, "min": -83, "mul": 9, "div": 5, "add": -83, "unit": "fahrenheit" }, "name": "Engine oil temperature", "suggestedMetric": "engineOilTemperature"},
     {"id": "CHRYSLER_EOT",      "path": "Engine", "fmt": {"bix": 56, "len": 8, "max": 191, "min": -64,                     "add": -64, "unit": "celsius"    }, "name": "Engine oil temperature"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "38"}, "freq": 30,
+  "signals": [
+    {"id": "CHRYSLER_ODO_7E0", "path": "Trips", "fmt": {"bix": 160, "len": 16, "max": 419424, "mul": 32, "div": 5, "unit": "kilometers" }, "name": "Odometer"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "3A"}, "freq": 5,
   "signals": [
@@ -1899,6 +1907,19 @@
     {"id": "CHRYSLER_SOOT_LOAD_BASED_ON_P", "path": "Engine", "fmt": {          "len": 8,  "max": 34.55, "div": 100, "add": 32, "unit": "unknown" }, "name": "Soot load based on delta pressure"},
     {"id": "CHRYSLER_ESITMATED_SOOT",       "path": "Engine", "fmt": {"bix": 8, "len": 16, "max": 65535,                        "unit": "seconds" }, "name": "Estimated soot removal time"}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "62"}, "freq": 5,
+  "signals": [
+    {"id": "CHRYSLER_EOP_7E0", "path": "Engine", "fmt": {           "len": 16, "max": 65535,                                         "unit": "kilopascal" }, "name": "Engine oil pressure"},
+    {"id": "CHRYSLER_EOT_V2",  "path": "Engine", "fmt": {"bix": 56, "len": 16, "max": 6280,  "min": -273, "div": 10, "add": -273.14, "unit": "celsius"    }, "name": "Engine oil temperature"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "63"}, "freq": 1,
+  "signals": [
+    {"id": "CHRYSLER_BOOST_P_CMD", "path": "Engine", "fmt": {"bix": 160, "len": 16, "max": 65535, "unit": "kilopascal" }, "name": "Boost pressure, commanded"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "7F"}, "freq": 30,
+  "signals": [
+    {"id": "CHRYSLER_ODO_LAST_REGEN", "path": "Trips", "fmt": {"bix": 96, "len": 32, "max": 4294967, "div": 1000, "unit": "kilometers" }, "name": "Odometer at last regeneration"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "A7"}, "freq": 1,
   "signals": [
     {"id": "CHRYSLER_AC_HIGH_SIDE_P_7E0", "path": "Engine", "fmt": {"bix": 48, "len": 16, "max": 1191, "div": 55, "unit": "psi" }, "name": "Air conditioning high side pressure"}
@@ -1906,6 +1927,10 @@
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "A8"}, "freq": 30,
   "signals": [
     {"id": "CHRYSLER_FLI", "path": "Fuel", "fmt": {"bix": 96, "len": 16, "max": 255, "div": 256, "unit": "percent" }, "name": "Fuel level", "suggestedMetric": "fuelTankLevel"}
+  ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "B1"}, "freq": 3600,
+  "signals": [
+    {"id": "CHRYSLER_REGEN_CNT", "path": "Engine", "fmt": {"bix": 152, "len": 16, "max": 65535, "unit": "scalar" }, "name": "Regeneration counter"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "B2"}, "freq": 5,
   "signals": [
@@ -1923,6 +1948,10 @@
     {"id": "CHRYSLER_FUEL_P_SENS_1000_S", "path": "Fuel",    "fmt": {           "len": 16, "max": 118,            "div": 552,            "unit": "psi"        }, "name": "Fuel pressure sensor, 1000's psi"},
     {"id": "CHRYSLER_CHG_AIR_COOLER_T",   "path": "Battery", "fmt": {"bix": 96, "len": 16, "max": 1875, "mul": 9, "div": 320, "add": 32, "unit": "fahrenheit" }, "name": "Charge air cooler outlet temperature"}
   ]},
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "B7"}, "freq": 1,
+  "signals": [
+    {"id": "CHRYSLER_FUEL_P", "path": "Fuel", "fmt": {"bix": 200, "len": 16, "max": 6553, "div": 10, "unit": "kilopascal" }, "name": "Fuel pressure"}
+  ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "CA"}, "freq": 5,
   "signals": [
     {"id": "CHRYSLER_OUTPUT_SHFT_SPD",       "path": "Movement",     "fmt": {"bix": 64, "len": 16, "max": 8191,           "div": 8,              "unit": "rpm"        }, "name": "Output shaft speed"},
@@ -1931,7 +1960,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "D2"}, "freq": 5,
   "signals": [
-    {"id": "CHRYSLER_EOT_21D2", "path": "Engine", "fmt": {"bix": 56, "len": 8, "max": 191, "min": -64, "add": -64, "unit": "celsius" }, "name": "Engine oil temperature"}
+    {"id": "CHRYSLER_EOT_21D2", "path": "Engine", "fmt": {"bix": 56, "len": 8, "max": 191, "min": -64, "add": -64, "unit": "celsius" }, "name": "Engine oil temperature", "suggestedMetric": "engineOilTemperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "D6"}, "freq": 30,
   "signals": [
@@ -1987,16 +2016,17 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0166"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_FUEL_MASS_CORR_CYL_1", "path": "Fuel", "fmt": {"bix": 144, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "scalar" }, "name": "Fuel mass correction, cylinder 1"},
-    {"id": "CHRYSLER_FUEL_MASS_CORR_CYL_2", "path": "Fuel", "fmt": {"bix": 160, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "scalar" }, "name": "Fuel mass correction, cylinder 2"},
-    {"id": "CHRYSLER_FUEL_MASS_CORR_CYL_3", "path": "Fuel", "fmt": {"bix": 176, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "scalar" }, "name": "Fuel mass correction, cylinder 3"},
-    {"id": "CHRYSLER_FUEL_MASS_CORR_CYL_4", "path": "Fuel", "fmt": {"bix": 192, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "scalar" }, "name": "Fuel mass correction, cylinder 4"},
-    {"id": "CHRYSLER_FUEL_MASS_CORR_CYL_5", "path": "Fuel", "fmt": {"bix": 208, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "scalar" }, "name": "Fuel mass correction, cylinder 5"},
-    {"id": "CHRYSLER_FUEL_MASS_CORR_CYL_6", "path": "Fuel", "fmt": {"bix": 224, "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "scalar" }, "name": "Fuel mass correction, cylinder 6"}
+    {"id": "CHRYSLER_FUEL_MASS_CORR_CYL_1", "path": "Fuel", "fmt": {"bix": 144, "len": 16, "max": 327, "min": -327, "div": 100, "sign": true, "unit": "scalar" }, "name": "Fuel mass correction, cylinder 1, mg/hub"},
+    {"id": "CHRYSLER_FUEL_MASS_CORR_CYL_2", "path": "Fuel", "fmt": {"bix": 160, "len": 16, "max": 327, "min": -327, "div": 100, "sign": true, "unit": "scalar" }, "name": "Fuel mass correction, cylinder 2, mg/hub"},
+    {"id": "CHRYSLER_FUEL_MASS_CORR_CYL_3", "path": "Fuel", "fmt": {"bix": 176, "len": 16, "max": 327, "min": -327, "div": 100, "sign": true, "unit": "scalar" }, "name": "Fuel mass correction, cylinder 3, mg/hub"},
+    {"id": "CHRYSLER_FUEL_MASS_CORR_CYL_4", "path": "Fuel", "fmt": {"bix": 192, "len": 16, "max": 327, "min": -327, "div": 100, "sign": true, "unit": "scalar" }, "name": "Fuel mass correction, cylinder 4, mg/hub"},
+    {"id": "CHRYSLER_FUEL_MASS_CORR_CYL_5", "path": "Fuel", "fmt": {"bix": 208, "len": 16, "max": 327, "min": -327, "div": 100, "sign": true, "unit": "scalar" }, "name": "Fuel mass correction, cylinder 5, mg/hub"},
+    {"id": "CHRYSLER_FUEL_MASS_CORR_CYL_6", "path": "Fuel", "fmt": {"bix": 224, "len": 16, "max": 327, "min": -327, "div": 100, "sign": true, "unit": "scalar" }, "name": "Fuel mass correction, cylinder 6, mg/hub"}
   ]},
-{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0168"}, "freq": 5,
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0168"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_EOT_V2",           "path": "Engine", "fmt": {"bix": 160, "len": 16, "max": 3003.56, "min": -3549.94, "div": 10,  "add": -273.14, "sign": true, "unit": "celsius" }, "name": "Engine oil temperature",                        "suggestedMetric": "engineOilTemperature"},
+    {"id": "CHRYSLER_EOT_0168",         "path": "Engine", "fmt": {"bix": 160, "len": 16, "max": 3003.56, "min": -3549.94, "div": 10,  "add": -273.14, "sign": true, "unit": "celsius" }, "name": "Engine oil temperature"},
+    {"id": "CHRYSLER_EOT_V3",           "path": "Engine", "fmt": {"bix": 160, "len": 16, "max": 3003.56, "min": -3549.94, "div": 10,  "add": -273.14, "sign": true, "unit": "celsius" }, "name": "Engine oil temperature",                        "suggestedMetric": "engineOilTemperature"},
     {"id": "CHRYSLER_OIL_TEMEPRATURE",  "path": "Engine", "fmt": {"bix": 160, "len": 16, "max": 6280,    "min": -273,     "div": 10,  "add": -273.14,               "unit": "celsius" }, "name": "Oil temperature"},
     {"id": "CHRYSLER_SENSED_P_PF_DN",   "path": "Engine", "fmt": {"bix": 176, "len": 16, "max": 32767,   "min": -32768,                               "sign": true, "unit": "unknown" }, "name": "Sensed pressure particulate filter downstream"},
     {"id": "CHRYSLER_TURBINE_UP_T",     "path": "Engine", "fmt": {"bix": 224, "len": 16, "max": 6280.36, "min": -273.14,  "div": 10,  "add": -273.14,               "unit": "celsius" }, "name": "Turbine upstream temperature"},
@@ -2124,8 +2154,8 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "03BC"}, "freq": 30,
   "signals": [
-    {"id": "CHRYSLER_ODO_03BC", "path": "Trips", "fmt": { "len": 32, "max": 4294967, "div": 1000, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"},
-    {"id": "CHRYSLER_ODO",      "path": "Trips", "fmt": { "len": 32, "max": 4294967, "div": 1000, "unit": "kilometers" }, "name": "Odometer"}
+    {"id": "CHRYSLER_ODO",      "path": "Trips", "fmt": { "len": 32, "max": 4294967, "div": 1000, "unit": "kilometers" }, "name": "Odometer"},
+    {"id": "CHRYSLER_ODO_03BC", "path": "Trips", "fmt": { "len": 32, "max": 4294967, "div": 1000, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "040F"}, "freq": 30,
   "signals": [
@@ -2133,8 +2163,8 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "043B"}, "freq": 30,
   "signals": [
-    {"id": "CHRYSLER_ODO_V2",  "path": "Trips", "fmt": { "len": 16, "max": 536862.72, "mul": 8.192,             "unit": "miles" }, "name": "Odometer",                  "suggestedMetric": "odometer"},
-    {"id": "CHRYSLER_PCM_ODO", "path": "Trips", "fmt": { "len": 16, "max": 536862,    "mul": 1024,  "div": 125, "unit": "miles" }, "name": "Odometer, engine computer"}
+    {"id": "CHRYSLER_PCM_ODO", "path": "Trips", "fmt": { "len": 16, "max": 536862,    "mul": 1024,  "div": 125, "unit": "miles" }, "name": "Odometer, engine computer"},
+    {"id": "CHRYSLER_ODO_V2",  "path": "Trips", "fmt": { "len": 16, "max": 536862.72, "mul": 8.192,             "unit": "miles" }, "name": "Odometer",                  "suggestedMetric": "odometer"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "059E"}, "freq": 1,
   "signals": [
@@ -2228,13 +2258,13 @@
   "signals": [
     {"id": "CHRYSLER_DPF_SOOT_MASS", "path": "Engine", "fmt": { "len": 16, "max": 100, "mul": 763, "div": 50000, "unit": "percent" }, "name": "Diesel particulate filter soot mass"}
   ]},
-{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "18E7"}, "freq": 3600,
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "18E7"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_DPF_REGENS_18E7", "path": "Engine", "fmt": { "len": 16, "max": 32767, "min": -32768, "sign": true, "unit": "scalar" }, "name": "Particulate filter regeneration count"}
+    {"id": "CHRYSLER_TOT_NUM_STARTED", "path": "Engine", "fmt": { "len": 16, "max": 32767, "min": -32768, "sign": true, "unit": "scalar" }, "name": "Total number of started regeneration events"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1935"}, "freq": 5,
   "signals": [
-    {"id": "CHRYSLER_IAT_1935", "path": "Engine", "fmt": { "len": 16, "max": 65495, "min": -40, "add": -40, "unit": "fahrenheit" }, "name": "Intake manifold air temperature"}
+    {"id": "CHRYSLER_INT_MANIFOLD_AIR_T", "path": "Engine", "fmt": { "len": 16, "max": 65495, "min": -40, "add": -40, "unit": "fahrenheit" }, "name": "Intake manifold air temperature"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "1997"}, "freq": 1,
   "signals": [
@@ -2248,33 +2278,33 @@
   "signals": [
     {"id": "CHRYSLER_WASTEGATE_POS_SENS", "path": "Engine", "fmt": { "len": 16, "max": 319.8107, "mul": 61, "div": 12500, "unit": "volts" }, "name": "Wastegate position sensor"}
   ]},
-{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "2007"}, "freq": 3600,
+{ "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "2007"}, "freq": 30,
   "signals": [
-    {"id": "CHRYSLER_ODO_LAST_OVERSPEED", "path": "Movement", "fmt": { "len": 24, "max": 1677721.5, "div": 10, "unit": "kilometers" }, "name": "Odometer at last excess speed event"}
+    {"id": "CHRYSLER_ODO_LAST_OVERSPEED", "path": "Movement", "fmt": { "len": 24, "max": 1677721, "div": 10, "unit": "kilometers" }, "name": "Odometer at last excess speed recognition"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "3800"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_TOT_FUEL_CORR_CYL_1", "path": "Fuel", "fmt": { "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "scalar" }, "name": "Total fuel correction, cylinder 1"}
+    {"id": "CHRYSLER_TOT_FUEL_CORR_CYL_1", "path": "Fuel", "fmt": { "len": 16, "max": 327, "min": -327, "div": 100, "sign": true, "unit": "scalar" }, "name": "Total fuel correction, cylinder 1, mg/hub"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "3801"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_TOT_FUEL_CORR_CYL_2", "path": "Fuel", "fmt": { "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "scalar" }, "name": "Total fuel correction, cylinder 2"}
+    {"id": "CHRYSLER_TOT_FUEL_CORR_CYL_2", "path": "Fuel", "fmt": { "len": 16, "max": 327, "min": -327, "div": 100, "sign": true, "unit": "scalar" }, "name": "Total fuel correction, cylinder 2, mg/hub"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "3802"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_TOT_FUEL_CORR_CYL_3", "path": "Fuel", "fmt": { "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "scalar" }, "name": "Total fuel correction, cylinder 3"}
+    {"id": "CHRYSLER_TOT_FUEL_CORR_CYL_3", "path": "Fuel", "fmt": { "len": 16, "max": 327, "min": -327, "div": 100, "sign": true, "unit": "scalar" }, "name": "Total fuel correction, cylinder 3, mg/hub"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "3803"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_TOT_FUEL_CORR_CYL_4", "path": "Fuel", "fmt": { "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "scalar" }, "name": "Total fuel correction, cylinder 4"}
+    {"id": "CHRYSLER_TOT_FUEL_CORR_CYL_4", "path": "Fuel", "fmt": { "len": 16, "max": 327, "min": -327, "div": 100, "sign": true, "unit": "scalar" }, "name": "Total fuel correction, cylinder 4, mg/hub"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "3804"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_TOT_FUEL_CORR_CYL_5", "path": "Fuel", "fmt": { "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "scalar" }, "name": "Total fuel correction, cylinder 5"}
+    {"id": "CHRYSLER_TOT_FUEL_CORR_CYL_5", "path": "Fuel", "fmt": { "len": 16, "max": 327, "min": -327, "div": 100, "sign": true, "unit": "scalar" }, "name": "Total fuel correction, cylinder 5, mg/hub"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "3805"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_TOT_FUEL_CORR_CYL_6", "path": "Fuel", "fmt": { "len": 16, "max": 327.67, "min": -327.68, "div": 100, "sign": true, "unit": "scalar" }, "name": "Total fuel correction, cylinder 6"}
+    {"id": "CHRYSLER_TOT_FUEL_CORR_CYL_6", "path": "Fuel", "fmt": { "len": 16, "max": 327, "min": -327, "div": 100, "sign": true, "unit": "scalar" }, "name": "Total fuel correction, cylinder 6, mg/hub"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "3807"}, "freq": 30,
   "signals": [
@@ -2424,13 +2454,13 @@
   ]},
 { "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"21": "0A"}, "freq": 5,
   "signals": [
-    {"id": "CHRYSLER_TRANS_T_VAR_2",     "path": "Transmission", "fmt": {"bix": 128, "len": 8, "max": 401, "min": -58, "mul": 9, "div": 5, "add": -58, "unit": "fahrenheit" }, "name": "Transmission temperature, variant 2", "suggestedMetric": "transmissionFluidTemperature"},
-    {"id": "CHRYSLER_TRANS_T_VAR_2_7E1", "path": "Transmission", "fmt": {"bix": 128, "len": 8, "max": 401, "min": -58, "mul": 9, "div": 5, "add": -58, "unit": "fahrenheit" }, "name": "Transmission temperature, variant 2"}
+    {"id": "CHRYSLER_TRANS_T_VAR_2_7E1", "path": "Transmission", "fmt": {"bix": 128, "len": 8, "max": 401, "min": -58, "mul": 9, "div": 5, "add": -58, "unit": "fahrenheit" }, "name": "Transmission temperature, variant 2"},
+    {"id": "CHRYSLER_TRANS_T_VAR_2",     "path": "Transmission", "fmt": {"bix": 128, "len": 8, "max": 401, "min": -58, "mul": 9, "div": 5, "add": -58, "unit": "fahrenheit" }, "name": "Transmission temperature, variant 2", "suggestedMetric": "transmissionFluidTemperature"}
   ]},
-{ "hdr": "7E1", "rax": "7E9", "fcm1": true, "dbg": true, "cmd": {"21": "18"}, "freq": 1,
+{ "hdr": "7E1", "rax": "7E9", "fcm1": true, "dbg": true, "cmd": {"21": "18"}, "freq": 5,
   "signals": [
-    {"id": "CHRYSLER_ATF_T_3RDGEN",   "path": "Engine",       "fmt": { "len": 16, "max": 983.9843, "min": -40, "div": 64, "add": -40, "unit": "fahrenheit" }, "name": "Automatic transmission fluid temperature"},
     {"id": "CHRYSLER_ATF_T_VAR_1_V2", "path": "Transmission", "fmt": { "len": 16, "max": 983,      "min": -40, "div": 64, "add": -40, "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variant 1"},
+    {"id": "CHRYSLER_ATF_T_3RDGEN",   "path": "Engine",       "fmt": { "len": 16, "max": 983.9843, "min": -40, "div": 64, "add": -40, "unit": "fahrenheit" }, "name": "Automatic transmission fluid temperature"},
     {"id": "CHRYSLER_ATF_T_2118",     "path": "Transmission", "fmt": { "len": 16, "max": 983,      "min": -40, "div": 64, "add": -40, "unit": "fahrenheit" }, "name": "Transmission fluid temperature",            "suggestedMetric": "transmissionFluidTemperature"}
   ]},
 { "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"21": "30"}, "freq": 5,
@@ -2441,20 +2471,20 @@
   "signals": [
     {"id": "CHRYSLER_TRANS_SUMP_T_7E1", "path": "Transmission", "fmt": {"bix": 72, "len": 16, "max": 1023, "div": 64, "unit": "fahrenheit" }, "name": "Transmission sump temperature", "suggestedMetric": "transmissionFluidTemperature"}
   ]},
-{ "hdr": "7E1", "rax": "7E9", "fcm1": true, "dbg": true, "cmd": {"21": "5C"}, "freq": 1,
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"21": "5C"}, "freq": 5,
   "signals": [
-    {"id": "CHRYSLER_ATF_T_3RDGEN_V2", "path": "Engine",       "fmt": {"bix": 32, "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Automatic transmission fluid temperature", "suggestedMetric": "transmissionFluidTemperature"},
-    {"id": "CHRYSLER_ATF_T_7E1",       "path": "Transmission", "fmt": {"bix": 32, "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Transmission fluid temperature"}
+    {"id": "CHRYSLER_ATF_T_7E1",       "path": "Transmission", "fmt": {"bix": 32, "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Transmission fluid temperature"},
+    {"id": "CHRYSLER_ATF_T_3RDGEN_V2", "path": "Engine",       "fmt": {"bix": 32, "len": 8, "max": 205, "min": -50, "add": -50, "unit": "celsius" }, "name": "Automatic transmission fluid temperature", "suggestedMetric": "transmissionFluidTemperature"}
   ]},
 { "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"21": "72"}, "freq": 5,
   "signals": [
-    {"id": "CHRYSLER_ATF_T_VAR_1_V3",  "path": "Transmission", "fmt": {"bix": 32, "len": 16, "max": 1023.9843, "div": 64, "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variant 1", "suggestedMetric": "transmissionFluidTemperature"},
-    {"id": "CHRYSLER_ATF_T_VAR_1_7E1", "path": "Transmission", "fmt": {"bix": 32, "len": 16, "max": 1023.9843, "div": 64, "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variant 1"},
+    {"id": "CHRYSLER_ATF_T_VAR_1_7E1", "path": "Transmission", "fmt": {"bix": 32, "len": 16, "max": 1023.9843, "div": 64, "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variant 1", "suggestedMetric": "transmissionFluidTemperature"},
+    {"id": "CHRYSLER_ATF_T_VAR_1_V3",  "path": "Transmission", "fmt": {"bix": 32, "len": 16, "max": 1023.9843, "div": 64, "unit": "fahrenheit" }, "name": "Transmission fluid temperature, variant 1"},
     {"id": "CHRYSLER_ATF_T_7E1_V2",    "path": "Transmission", "fmt": {"bix": 32, "len": 16, "max": 1023,      "div": 64, "unit": "fahrenheit" }, "name": "Transmission fluid temperature"}
   ]},
-{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "04FE"}, "freq": 1,
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "04FE"}, "freq": 5,
   "signals": [
-    {"id": "CHRYSLER_ATF_T",            "path": "Transmission", "fmt": { "len": 8, "max": 300, "min": -30, "mul": 1.8,           "add": -40, "unit": "fahrenheit" }, "name": "Transmission temperature",            "suggestedMetric": "transmissionFluidTemperature"},
+    {"id": "CHRYSLER_ATF_T",            "path": "Transmission", "fmt": { "len": 8, "max": 215, "min": -40,                       "add": -40, "unit": "celsius"    }, "name": "Automatic transmission fluid temperature"},
     {"id": "CHRYSLER_TRANS_T_VAR_2_V2", "path": "Transmission", "fmt": { "len": 8, "max": 419, "min": -40, "mul": 9,   "div": 5, "add": -40, "unit": "fahrenheit" }, "name": "Transmission temperature, variant 2"},
     {"id": "CHRYSLER_ATF_T_2",          "path": "Transmission", "fmt": { "len": 8, "max": 300, "min": -30, "mul": 1.8,           "add": -40, "unit": "fahrenheit" }, "name": "Transmission temperature"}
   ]},
@@ -2468,17 +2498,17 @@
   ]},
 { "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "5034"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_MAIN_CYL_P", "path": "Engine", "fmt": { "len": 16, "max": 6513, "min": -40, "div": 10, "add": -40, "unit": "bars" }, "name": "Transmission main cylinder pressure"}
+    {"id": "CHRYSLER_MAIN_CYL_P", "path": "Engine", "fmt": { "len": 16, "max": 6513, "min": -40, "div": 10, "add": -40, "unit": "bars" }, "name": "AT main cylinder pressure"}
   ]},
 { "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "5043"}, "freq": 5,
   "signals": [
-    {"id": "CHRYSLER_ATF_T_7E1_V3", "path": "Transmission", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature", "suggestedMetric": "transmissionFluidTemperature"},
-    {"id": "CHRYSLER_ATF_T_7E1_2",  "path": "Transmission", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature"}
+    {"id": "CHRYSLER_ATF_T_7E1_2",  "path": "Transmission", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature"},
+    {"id": "CHRYSLER_ATF_T_7E1_V3", "path": "Transmission", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature", "suggestedMetric": "transmissionFluidTemperature"}
   ]},
-{ "hdr": "7E1", "rax": "7E9", "fcm1": true, "dbg": true, "cmd": {"22": "5503"}, "freq": 1,
+{ "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "5503"}, "freq": 0.25,
   "signals": [
     {"id": "CHRYSLER_CURRENT_GEAR_RAW_CNT", "path": "Transmission", "fmt": { "len": 8, "max": 255, "unit": "scalar" }, "name": "Current gear, raw count"},
-    {"id": "CHRYSLER_GEAR", "path": "Transmission", "name": "Current gear", "description": "The automatic transmission gear.", "fmt": {"bix": 4, "len": 4, "map": {
+    {"id": "CHRYSLER_GEAR", "path": "Transmission", "name": "Current gear", "fmt": {"bix": 4, "len": 4, "map": {
           "0":  { "description": "Neutral",      "value": "NEUTRAL" },
           "1":  { "description": "First gear",   "value": "1" },
           "2":  { "description": "Second gear",  "value": "2" },
