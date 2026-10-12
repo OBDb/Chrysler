@@ -1895,9 +1895,9 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "48"}, "freq": 5,
   "signals": [
-    {"id": "CHRYSLER_EXH_GAS_T_1_7E0", "path": "Engine", "fmt": {"bix": 112, "len": 16, "max": 32767, "div": 2, "unit": "fahrenheit" }, "name": "Exhaust gas temperature 1"},
-    {"id": "CHRYSLER_EXH_GAS_T_2_7E0", "path": "Engine", "fmt": {"bix": 288, "len": 16, "max": 32767, "div": 2, "unit": "fahrenheit" }, "name": "Exhaust gas temperature 2"},
-    {"id": "CHRYSLER_DPF_REGEN",       "path": "Engine", "fmt": {"bix": 383, "len": 1,  "max": 1,               "unit": "offon"      }, "name": "Diesel particulate filter regeneration"}
+    {"id": "CHRYSLER_EXH_GAS_T_1_7E0", "path": "Engine", "fmt": {"bix": 112, "len": 16, "max": 32767, "div": 2,                   "unit": "fahrenheit" }, "name": "Exhaust gas temperature 1"},
+    {"id": "CHRYSLER_EXH_GAS_T_2_7E0", "path": "Engine", "fmt": {"bix": 288, "len": 16, "max": 32767, "div": 2, "nullmax": 32767, "unit": "fahrenheit" }, "name": "Exhaust gas temperature 2"},
+    {"id": "CHRYSLER_DPF_REGEN",       "path": "Engine", "fmt": {"bix": 383, "len": 1,  "max": 1,                                 "unit": "offon"      }, "name": "Diesel particulate filter regeneration"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"21": "4D"}, "freq": 1,
   "signals": [
