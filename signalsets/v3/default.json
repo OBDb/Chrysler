@@ -103,7 +103,7 @@
   ]},
 { "hdr": "6A8", "rax": "688", "fcm1": true, "din": "C0", "dbg": true, "cmd": {"22": "D400"}, "freq": 0.25,
   "signals": [
-    {"id": "CHRYSLER_RPM_V2", "path": "Movement", "fmt": { "len": 16, "max": 65535, "unit": "rpm" }, "name": "Engine RPM", "suggestedMetric": "engineSpeed"}
+    {"id": "CHRYSLER_RPM", "path": "Movement", "fmt": { "len": 16, "max": 65535, "unit": "rpm" }, "name": "Engine RPM", "suggestedMetric": "engineSpeed"}
   ]},
 { "hdr": "6A8", "rax": "688", "fcm1": true, "dbg": true, "cmd": {"22": "D402"}, "freq": 0.25,
   "signals": [
@@ -1041,7 +1041,7 @@
     {"id": "CHRYSLER_INPUT_SHFT_SPD", "path": "Movement", "fmt": {"bix": 48,  "len": 8, "max": 8160,              "mul": 32,                        "unit": "rpm"     }, "name": "Input shaft speed"},
     {"id": "CHRYSLER_CMD_OIL_P",      "path": "Engine",   "fmt": {"bix": 128, "len": 8, "max": 25.5,                         "div": 10,             "unit": "bars"    }, "name": "Commanded oil pressure"},
     {"id": "CHRYSLER_ACT_OIL_P",      "path": "Engine",   "fmt": {"bix": 144, "len": 8, "max": 12.75,                        "div": 20,             "unit": "bars"    }, "name": "Actual oil pressure"},
-    {"id": "CHRYSLER_ATF_T_V3",       "path": "Engine",   "fmt": {"bix": 168, "len": 8, "max": 205,   "min": -50,                       "add": -50, "unit": "celsius" }, "name": "Transmission fluid temperature", "suggestedMetric": "transmissionFluidTemperature"}
+    {"id": "CHRYSLER_ATF_T_V2",       "path": "Engine",   "fmt": {"bix": 168, "len": 8, "max": 205,   "min": -50,                       "add": -50, "unit": "celsius" }, "name": "Transmission fluid temperature", "suggestedMetric": "transmissionFluidTemperature"}
   ]},
 { "hdr": "6A9", "rax": "689", "fcm1": true, "din": "03", "dbg": true, "cmd": {"21": "C8"}, "freq": 0.25,
   "signals": [
@@ -1533,7 +1533,7 @@
   ]},
 { "hdr": "6B4", "rax": "694", "fcm1": true, "dbg": true, "cmd": {"22": "D410"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_HVBAT_SOC", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 512, "unit": "percent" }, "name": "High voltage battery charge (calibrated)", "suggestedMetric": "stateOfCharge"}
+    {"id": "CHRYSLER_HVBAT_SOC", "path": "Battery", "fmt": { "len": 16, "max": 100, "div": 512, "unit": "percent" }, "name": "High voltage battery charge, calibrated", "suggestedMetric": "stateOfCharge"}
   ]},
 { "hdr": "6B4", "rax": "694", "fcm1": true, "dbg": true, "cmd": {"22": "D413"}, "freq": 1,
   "signals": [
@@ -1692,7 +1692,7 @@
   ]},
 { "hdr": "6B4", "rax": "694", "fcm1": true, "dbg": true, "cmd": {"22": "D49C"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_ODO_V3", "path": "Trips", "fmt": { "len": 32, "max": 429496729, "div": 1000, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
+    {"id": "CHRYSLER_ODO_V3", "path": "Trips", "fmt": { "len": 32, "max": 4294967, "div": 1000, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
   ]},
 { "hdr": "6B4", "rax": "694", "fcm1": true, "dbg": true, "cmd": {"22": "D802"}, "freq": 0.25,
   "signals": [
@@ -1737,8 +1737,8 @@
   ]},
 { "hdr": "6B4", "rax": "694", "fcm1": true, "dbg": true, "cmd": {"22": "D865"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_HVBAT_KWH",          "path": "Battery", "fmt": { "len": 16, "max": 3276.75, "div": 64,  "unit": "kilowattHours" }, "name": "HV battery energy",                                 "description": "Energy stored in the high voltage battery"},
-    {"id": "CHRYSLER_HV_BATT_SOC_HI_RES", "path": "Battery", "fmt": { "len": 16, "max": 100,     "div": 100, "unit": "percent"       }, "name": "Traction battery state of charge, high resolution", "description": "Tracks the charge level, 1-2 points below 308_HV_BATT_SOC."}
+    {"id": "CHRYSLER_HVBAT_KWH",          "path": "Battery", "fmt": { "len": 16, "max": 1023, "div": 64,  "unit": "kilowattHours" }, "name": "HV battery energy",                                 "description": "Energy stored in the high voltage battery"},
+    {"id": "CHRYSLER_HV_BATT_SOC_HI_RES", "path": "Battery", "fmt": { "len": 16, "max": 100,  "div": 100, "unit": "percent"       }, "name": "Traction battery state of charge, high resolution", "description": "Tracks the charge level, 1-2 points below 308_HV_BATT_SOC."}
   ]},
 { "hdr": "6B4", "rax": "694", "fcm1": true, "dbg": true, "cmd": {"22": "D86F"}, "freq": 1,
   "signals": [
@@ -2566,7 +2566,7 @@
   ]},
 { "hdr": "DA10", "rax": "10", "din": "03", "dbg": true, "cmd": {"22": "1000"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_RPM", "path": "Engine", "fmt": { "len": 16, "max": 16383, "div": 4, "unit": "rpm" }, "name": "Engine RPM"}
+    {"id": "CHRYSLER_RPM_V2", "path": "Engine", "fmt": { "len": 16, "max": 16383, "div": 4, "unit": "rpm" }, "name": "Engine RPM"}
   ]},
 { "hdr": "DA10", "rax": "10", "din": "03", "dbg": true, "cmd": {"22": "1002"}, "freq": 30,
   "signals": [
@@ -2876,7 +2876,7 @@
   ]},
 { "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "04FE"}, "freq": 5,
   "signals": [
-    {"id": "CHRYSLER_ATF_T_V2",     "path": "Transmission", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature"},
+    {"id": "CHRYSLER_ATF_T_V3",     "path": "Transmission", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature"},
     {"id": "CHRYSLER_ATF_T_4THGEN", "path": "Transmission", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Transmission fluid temperature", "suggestedMetric": "transmissionFluidTemperature"}
   ]},
 { "hdr": "DA18", "rax": "18", "dbg": true, "cmd": {"22": "051A"}, "freq": 0.25,
