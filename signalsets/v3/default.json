@@ -3121,8 +3121,7 @@
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "0198"}, "freq": 1,
   "signals": [
-    {"id": "CHRYSLER_ENG_TEMEPRATURE", "path": "Engine", "fmt": { "len": 16, "max": 6280,  "min": -273, "div": 10, "add": -273.14, "unit": "celsius" }, "name": "Engine temperature"},
-    {"id": "CHRYSLER_ECM_0198",        "path": "Engine", "fmt": { "len": 16, "max": 65535,                                         "unit": "scalar"  }, "name": "Engine computer value 0198, unidentified"}
+    {"id": "CHRYSLER_ENG_TEMEPRATURE", "path": "Engine", "fmt": { "len": 16, "max": 65535, "unit": "scalar" }, "name": "Engine status raw"}
   ]},
 { "hdr": "7E0", "rax": "7E8", "dbg": true, "cmd": {"22": "01A0"}, "freq": 1,
   "signals": [
